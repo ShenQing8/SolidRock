@@ -1,0 +1,68 @@
+[
+    {
+        "id": 0,
+        "res": "Monster/Z1",
+        "animatorRes": "Animator/Monster/Aggressive",
+        "atk": 5,
+        "moveSpeed": 3,
+        "roundSpeed": 100,
+        "hp": 10,
+        "atkOffst": 2,
+        "value": 20
+    },
+    {
+        "id": 1,
+        "res": "Monster/Z2",
+        "animatorRes": "Animator/Monster/Broken",
+        "atk": 5,
+        "moveSpeed": 3,
+        "roundSpeed": 100,
+        "hp": 10,
+        "atkOffst": 1.6,
+        "value": 25
+    },
+    {
+        "id": 2,
+        "res": "Monster/Z3",
+        "animatorRes": "Animator/Monster/Calm",
+        "atk": 5,
+        "moveSpeed": 2,
+        "roundSpeed": 60,
+        "hp": 20,
+        "atkOffst": 2.4,
+        "value": 40
+    },
+    {
+        "id": 3,
+        "res": "Monster/Z4",
+        "animatorRes": "Animator/Monster/Crawl",
+        "atk": 5,
+        "moveSpeed": 4,
+        "roundSpeed": 150,
+        "hp": 15,
+        "atkOffst": 1.2,
+        "value": 30
+    },
+    {
+        "id": 4,
+        "res": "Monster/Z1",
+        "animatorRes": "Animator/Monster/Calm",
+        "atk": 5,
+        "moveSpeed": 3,
+        "roundSpeed": 100,
+        "hp": 10,
+        "atkOffst": 2,
+        "value": 20
+    },
+    {
+        "id": 5,
+        "res": "Monster/Z2",
+        "animatorRes": "Animator/Monster/Crawl",
+        "atk": 5,
+        "moveSpeed": 3,
+        "roundSpeed": 100,
+        "hp": 10,
+        "atkOffst": 1.6,
+        "value": 25
+    }
+]

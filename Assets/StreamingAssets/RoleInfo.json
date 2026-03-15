@@ -1,0 +1,58 @@
+[
+    {
+        "id": 0,
+        "res": "Role/engineer",
+        "defaultWeaponID": 0,
+        "lockMoney": 0,
+        "name": "最帅气的男人"
+    },
+    {
+        "id": 1,
+        "res": "Role/flammer",
+        "defaultWeaponID": 0,
+        "lockMoney": 0,
+        "name": "最威猛的男人"
+    },
+    {
+        "id": 2,
+        "res": "Role/gunner",
+        "defaultWeaponID": 1,
+        "lockMoney": 100,
+        "name": "最善良的男人"
+    },
+    {
+        "id": 3,
+        "res": "Role/infantry",
+        "defaultWeaponID": 1,
+        "lockMoney": 200,
+        "name": "最邪恶的男人"
+    },
+    {
+        "id": 4,
+        "res": "Role/medic",
+        "defaultWeaponID": 2,
+        "lockMoney": 300,
+        "name": "最可爱的男人"
+    },
+    {
+        "id": 5,
+        "res": "Role/officer",
+        "defaultWeaponID": 2,
+        "lockMoney": 400,
+        "name": "最娘炮的男人"
+    },
+    {
+        "id": 6,
+        "res": "Role/scout",
+        "defaultWeaponID": 2,
+        "lockMoney": 500,
+        "name": "最爷们儿的男人"
+    },
+    {
+        "id": 7,
+        "res": "Role/sniper",
+        "defaultWeaponID": 3,
+        "lockMoney": 600,
+        "name": "最小的男人"
+    }
+]

@@ -1,0 +1,31 @@
+# Unity 生成的文件
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+
+# 内存分析文件
+*.mem
+
+# 构建输出
+*.apk
+*.aab
+*.unitypackage
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 编译产物
+*.csproj
+*.sln
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pidb.meta
+
+# 如果使用 Git LFS 管理大文件，可单独配置

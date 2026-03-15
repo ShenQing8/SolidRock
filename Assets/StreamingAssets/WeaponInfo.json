@@ -1,0 +1,38 @@
+[
+    {
+        "id": 0,
+        "res": "Weapons/knife",
+        "atk": 2,
+        "animator": "Animator/Role/knife"
+    },
+    {
+        "id": 1,
+        "res": "Weapons/handgun",
+        "atk": 3,
+        "animator": "Animator/Role/handgun"
+    },
+    {
+        "id": 2,
+        "res": "Weapons/infantry_shotgun",
+        "atk": 4,
+        "animator": "Animator/Role/infantry"
+    },
+    {
+        "id": 3,
+        "res": "Weapons/rocketlauncher",
+        "atk": 10,
+        "animator": "Animator/Role/rocketlauncher"
+    },
+    {
+        "id": 4,
+        "res": "Weapons/heavy",
+        "atk": 8,
+        "animator": "Animator/Role/heavy"
+    },
+    {
+        "id": 5,
+        "res": "Weapons/machinegun",
+        "atk": 6,
+        "animator": "Animator/Role/machinegun"
+    }
+]
