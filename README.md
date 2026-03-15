@@ -14,8 +14,13 @@
 
 - 引擎：Unity 2022.3.24f1c1
 
-## 克隆仓库
+## 本地运行
 
 1. 克隆本仓库：
    ```bash
-   git clone https://github.com/你的用户名/仓库名.git
+   https://github.com/ShenQing8/SolidRock.git
+2. 在 Unity Hub 中打开项目文件夹。
+
+3. 打开场景 Assets/Scenes/BeginScene
+
+4. 点击运行按钮，开始游戏。
