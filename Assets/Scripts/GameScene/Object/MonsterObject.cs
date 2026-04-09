@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using Pools;
 
 public class MonsterObject : MonoBehaviour
 {
@@ -23,6 +24,11 @@ public class MonsterObject : MonoBehaviour
     public void Init(MonsterInfo info)
     {
         monsterInfo = info;
+        // =========【新增：对象池取出的“回满血重置”操作】=========
+        isDead = false;
+        animator.SetBool("Dead", false);
+        if(agent != null) agent.enabled = true; 
+        // =====================================================
         // 设置血量
         nowhp = info.hp;
         // 设置状态机
@@ -92,7 +98,8 @@ public class MonsterObject : MonoBehaviour
         // 关卡管理器使怪物数量-1
         GameLevelMge.Instance.RemoveMonster(this);
         // 销毁对象
-        Destroy(gameObject);
+        // Destroy(gameObject);  // 屏蔽原有的销毁代码
+        SharedGameObjectPool.Return(gameObject); // 修改为归还对象池
         // 检测游戏是否结束
         if(GameLevelMge.Instance.CheckOver())
         {

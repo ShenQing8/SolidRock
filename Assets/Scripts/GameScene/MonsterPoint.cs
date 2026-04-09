@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Pools;
 
 public class MonsterPoint : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class MonsterPoint : MonoBehaviour
     public int delayTime;
     // 第一波怪物的创建时间
     public int firstDelayTime;
+    // 避免高频调用 Resources.Load，并且保证 SharedGameObjectPool 获取到的是同一个对象的引用
+    private Dictionary<int, GameObject> prefabCache = new Dictionary<int, GameObject>();
 
     void Start()
     {
@@ -50,7 +53,27 @@ public class MonsterPoint : MonoBehaviour
     {
         // 根据当前怪物ID创建怪物
         MonsterInfo monsterInfo = DataManager.Instance.monsterInfos[nowID];
-        MonsterObject monsterObject = Instantiate(Resources.Load<GameObject>(monsterInfo.res), transform.position, Quaternion.identity).AddComponent<MonsterObject>();
+        
+        // =========【改造开始：用池化借出代替立刻生成】=========
+        // MonsterObject monsterObject = Instantiate(Resources.Load<GameObject>(monsterInfo.res), transform.position, Quaternion.identity).AddComponent<MonsterObject>();
+        
+        // 1. 如果缓存字典中没有当前怪物ID的预制体资源，则去Resources查一次并存入字典
+        if (!prefabCache.TryGetValue(nowID, out GameObject prefab))
+        {
+            prefab = Resources.Load<GameObject>(monsterInfo.res);
+            prefabCache.Add(nowID, prefab);
+        }
+
+        // 2. 利用 SharedGameObjectPool 在当前位置借出一个怪物的 GameObject
+        GameObject monsterGo = SharedGameObjectPool.Rent(prefab, transform.position, Quaternion.identity);
+
+        // 3. 动态获取挂在这个游戏对象上的 MonsterObject 脚本
+        if (!monsterGo.TryGetComponent<MonsterObject>(out MonsterObject monsterObject))
+        {
+            monsterObject = monsterGo.AddComponent<MonsterObject>();
+        }
+        // =================================================
+        
         monsterObject.Init(monsterInfo);
         // 更新当前场景上的怪物数量
         GameLevelMge.Instance.AddMonster(monsterObject);
