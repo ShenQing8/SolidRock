@@ -32,6 +32,6 @@ public class ChooseScenePanelView : BasePanel
         // 改预览图片
         ImgScene.sprite = Resources.Load<Sprite>(sceneInfo.imgRes);
         // 改文本内容
-        TextContent.text = $"名称:\n{sceneInfo.name}\nTip:\n{sceneInfo.tips}\n塔血量:\n{sceneInfo.towerHp}\n默认金币:\n{sceneInfo.money}";
+        TextContent.text = $"名称:\n{sceneInfo.name}\nTip:\n{sceneInfo.tips}\n塔血量:{sceneInfo.towerHp}\n默认金币:{sceneInfo.money}";
     }
 }

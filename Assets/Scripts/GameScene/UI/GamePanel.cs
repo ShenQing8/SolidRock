@@ -9,8 +9,10 @@ public class GamePanel : BasePanel
     public Text TextHP;
     public Text TextWaves;
     public Text TextMoney;
+    public Text TextAim;
     public Image ImgHP;
     public Button BtnBack;
+    public Button BtnSet;
     public Transform TowerParent;
     public List<TowerBtn> TowerBtns;
     private TowerPoint nowTowerPoint;
@@ -38,6 +40,12 @@ public class GamePanel : BasePanel
                 // 切换场景
                 SceneManager.LoadScene("BeginScene");
             });
+        });
+        BtnSet.onClick.AddListener(()=>
+        {
+            // 暂停游戏
+            PauseManager.Pause();
+            UIManager.Instance.ShowPanel<AimSetPanel>();
         });
         // 隐藏塔防建造面板
         TowerParent.gameObject.SetActive(false);
@@ -93,6 +101,11 @@ public class GamePanel : BasePanel
             TowerBtns[1].gameObject.SetActive(true);
             TowerBtns[1].Init(towerInfo.id, "空格键");
         }
+    }
+
+    public void UpdateAimPos(float x, float y)
+    {
+        TextAim.transform.localPosition = new Vector3(x, y, 0);
     }
 
     public void UpdateHP(int hp, int maxHp)

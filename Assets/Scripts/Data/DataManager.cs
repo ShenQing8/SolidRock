@@ -31,9 +31,10 @@ public class DataManager
         musicData = JsonMgr.Instance.LoadData<MusicData>("MusicData");
         // 初始化角色数据
         roleInfos = JsonMgr.Instance.LoadData<List<RoleInfo>>("RoleInfo");
-        // 重新保存数据，用来清空之前测试时产生的数据
+        // =======重新保存数据，用来清空之前测试时产生的数据===
         // playerData = new PlayerData();
         // SavePlayerData();
+        // ================================================
         // 初始化玩家数据
         playerData = JsonMgr.Instance.LoadData<PlayerData>("PlayerData");
         // 初始化场景数据

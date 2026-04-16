@@ -10,7 +10,7 @@ public class CameraMove : MonoBehaviour
     public float MoveSpeed = 5f;
     public float RotateSpeed = 150f; // 修改：调大旋转速度用于匹配鼠标灵敏度
 
-    // ===== 新增：用于自由旋转相机(轨道视角)的记录值 =====
+    // ===== 用于自由旋转相机(轨道视角)的记录值 =====
     private float currentYaw = 0f;
     private float currentPitch = 15f; 
     [Header("相机轨道限制")]
@@ -31,29 +31,12 @@ public class CameraMove : MonoBehaviour
         currentPitch = angles.x;
     }
 
-    /* ===== 原有代码 注释保留 开始 =====
-    void Update()
-    {
-        if(player == null)
-            return;
-        TargetPos = player.position + player.forward * offset.z + player.up * offset.y + player.right * offset.x;
-        // 插值运算，相机逐渐接近目标位置
-        transform.position = Vector3.Lerp(transform.position, TargetPos, Time.deltaTime * MoveSpeed);
-        // 目标角度
-        TargetRot = Quaternion.LookRotation(player.position + Vector3.up * bodeHeight - transform.position);
-        // 插值运算，逐渐接近目标角度
-        transform.rotation = Quaternion.Slerp(transform.rotation, TargetRot, Time.deltaTime * RotateSpeed);
-    }
-    ===== 原有代码 注释保留 结束 ===== */
-
-
-    // ===== 新的自由视角/轨道相机逻辑 开始 =====
     // 放进LateUpdate中可以确保玩家移动（Update）做完后，再更新相机，避免镜头与角色之间发生小幅抖动
     void LateUpdate()
     {
         if(player == null) return;
         
-        // 只有在没按左Alt键（没显示鼠标）的时候，才允许转动视角
+        // 只有在没按左Alt键的时候，才允许转动视角
         if (!Input.GetKey(KeyCode.LeftAlt))
         {
             // 读取鼠标X和Y方向的输入累加到旋转角中
@@ -75,7 +58,6 @@ public class CameraMove : MonoBehaviour
         transform.position = targetLookAt + rotation * direction;
         transform.LookAt(targetLookAt); // 强行让相机盯住目标点
     }
-    // ===== 新的自由视角/轨道相机逻辑 结束 =====
 
     // 设置跟随目标
     public void SetTarget(Transform target)
